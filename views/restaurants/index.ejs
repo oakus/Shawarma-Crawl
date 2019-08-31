@@ -1,0 +1,41 @@
+<% include ../partials/header  %>
+
+<div class="container">
+    <header class="jumbotron">
+        <h1>Start Your Shawarma Crawl</h1>
+        <p>Find the best shawarma and falafel in Toronto</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/restaurants/new">Add new Restaurant</a>
+        </p>
+        
+    </header>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Most Popular Joints!</h3>
+        </div>
+
+    </div>
+
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% restaurants.forEach(function(restaurant){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%=restaurant.image %>" alt="">
+                    <div class="caption">
+                            <h4><%= restaurant.name %></h4>   
+                    </div>
+                <p>
+                    <a href="/restaurants/<%= restaurant._id %>" class="btn btn-primary">More Info</a>
+                </p>    
+                </div>  
+                           
+            </div>
+                
+            </li>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../partials/footer %>
