@@ -16,15 +16,19 @@ var commentRoutes       = require("./routes/comments"),
     restaurantRoutes    = require ("./routes/restaurants"),
     indexRoutes         = require("./routes/index")
 
-       
-mongoose.connect("mongodb+srv://o3smith:oQupOOpdH21DdCuE@cluster0-ydbys.mongodb.net/shawarma_crawl?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useCreateIndex : true
-}). then(() => {
-    console.log("connected to DB!");
-}).catch(err => {
-    console.log('ERROR:', err.message);
-});
+
+mongoose.connect(process.env.DATABASEURL);  
+// mongoose.connect("mongodb://localhost/shawarma_crawl")       
+// mongoose.connect("mongodb+srv://o3smith:oQupOOpdH21DdCuE@cluster0-ydbys.mongodb.net/shawarma_crawl?retryWrites=true&w=majority", {
+//     useNewUrlParser: true,
+//     useCreateIndex : true
+// }). then(() => {
+//     console.log("connected to DB!");
+// }).catch(err => {
+//     console.log('ERROR:', err.message);
+// });
+// process.env.databaseURL
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
