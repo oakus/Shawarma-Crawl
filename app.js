@@ -16,8 +16,8 @@ var commentRoutes       = require("./routes/comments"),
     restaurantRoutes    = require ("./routes/restaurants"),
     indexRoutes         = require("./routes/index")
 
-
-mongoose.connect(process.env.DATABASEURL);  
+var url = process.env.DATABASEURL || "mongodb://localhost/shawarma_crawl"
+mongoose.connect(url);  
 // mongoose.connect("mongodb://localhost/shawarma_crawl")       
 // mongoose.connect("mongodb+srv://o3smith:oQupOOpdH21DdCuE@cluster0-ydbys.mongodb.net/shawarma_crawl?retryWrites=true&w=majority", {
 //     useNewUrlParser: true,
